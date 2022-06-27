@@ -1,0 +1,31 @@
+.sidebar{
+  width: 85px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #165C7D;
+  width: 100%;
+}
+
+li a {
+  display: block;
+  background-color: #165C7D;
+}
+
+.icons{
+  display: inline-block;
+  &__ailos{
+    width: 100%;
+  }
+  &__hamburguer{
+    width: 30%;
+  }
+}
+
+.centraliza{
+  text-align: center;
+}
