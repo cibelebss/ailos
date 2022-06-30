@@ -1,0 +1,57 @@
+.topnav {
+  background-color: #f2f2f2;
+  overflow: hidden;
+  margin-left: 85px;
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  img {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 1px 1px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  button {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 5px 15px 5px 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "Open Sans";
+    font-weight: 700;
+    color: #165c7d;
+    border-color: #165c7d;
+    border: #165c7d solid 1px;
+    margin: 4px 15px 0 0;
+  }
+
+  .titulo {
+    font-family: "Exo 2";
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 !important;
+  }
+
+  .breadcrumb {
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 100;
+    padding: 0px 0 0px 0;
+  }
+}
+
+.botao_perfil {
+  border-radius: 13px;
+  padding: 25px;
+}
+
+.itens_perfil {
+  padding-top: 5px;
+}

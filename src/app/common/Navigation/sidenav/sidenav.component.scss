@@ -1,5 +1,6 @@
-.sidebar{
+.sidebar {
   width: 85px;
+  position: absolute;
 }
 
 ul {
@@ -7,25 +8,25 @@ ul {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-color: #165C7D;
+  background-color: #165c7d;
   width: 100%;
 }
 
 li a {
   display: block;
-  background-color: #165C7D;
+  background-color: #165c7d;
 }
 
-.icons{
+.icons {
   display: inline-block;
-  &__ailos{
+  color: white;
+  padding-top: 40%;
+  font-size: 30px;
+  &__ailos {
     width: 100%;
   }
-  &__hamburguer{
-    width: 30%;
-  }
 }
 
-.centraliza{
+.centraliza {
   text-align: center;
 }
