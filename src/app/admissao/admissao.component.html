@@ -1,1 +1,42 @@
-<p>admissao works!</p>
+<mat-stepper class="col-sm-6" labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <div>
+      <h1 class="titulo_sessao">Informe o CPF do futuro cooperado (a)</h1>
+      <p class="medium_sutil mt-3">
+        Se necessário, você poderá duplicar uma conta existente ou pausar e
+        retomar este cadastro futuramente.
+      </p>
+      <p class="medium_sutil">
+        Digite apenas os números(sem pontos ou traços).
+      </p>
+
+      <form [formGroup]="cpfFormGroup" (ngSubmit)="onSubmit()">
+        <label
+          style="font-family: Open Sans; font-weight: 700; font-size: 14px"
+          for="cpf"
+          class="mt-3"
+          >CPF</label
+        ><br />
+          <input
+            [ngClass]="errorCpfObrigatorio || errorCpfInvalido ? 'errorCpf' : ''"
+            placeholder="000.000.000-0"
+            class="input_cpf"
+            type="string"
+            name="cpf"
+            formControlName="cpf"
+            (ngModelChange)="onChange()"
+            pattern="(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)"
+            maxlength="11"
+          />
+          <button class="btn_consultar" type="submit">Consultar por CPF</button><br>
+          <span style="color: red" *ngIf="errorCpfObrigatorio">Cpf é obrigatório.</span>
+          <span style="color: red" *ngIf="errorCpfInvalido">Cpf inválido.</span>
+      </form>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup"> </mat-step>
+  <mat-step> </mat-step>
+  <mat-step> </mat-step>
+</mat-stepper>
+
+<h1>card aqui</h1>
