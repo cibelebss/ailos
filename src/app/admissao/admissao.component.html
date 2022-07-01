@@ -1,42 +1,46 @@
-<mat-stepper class="col-sm-6" labelPosition="bottom" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <div>
-      <h1 class="titulo_sessao">Informe o CPF do futuro cooperado (a)</h1>
-      <p class="medium_sutil mt-3">
-        Se necessário, você poderá duplicar uma conta existente ou pausar e
-        retomar este cadastro futuramente.
-      </p>
-      <p class="medium_sutil">
-        Digite apenas os números(sem pontos ou traços).
-      </p>
+<section class="col-sm-12">
+  <mat-stepper labelPosition="bottom" #stepper>
+    <mat-step>
+      <div class="col-sm-12 col-md-12">
+        <h1 class="titulo_sessao">Informe o CPF do futuro cooperado (a)</h1>
+        <p class="medium_sutil mt-3">
+          Se necessário, você poderá duplicar uma conta existente ou pausar e
+          retomar este cadastro futuramente.
+        </p>
+        <p class="medium_sutil">
+          Digite apenas os números(sem pontos ou traços).
+        </p>
 
-      <form [formGroup]="cpfFormGroup" (ngSubmit)="onSubmit()">
-        <label
-          style="font-family: Open Sans; font-weight: 700; font-size: 14px"
-          for="cpf"
-          class="mt-3"
-          >CPF</label
-        ><br />
+        <form [formGroup]="cpfFormGroup" (ngSubmit)="validaForm()">
+          <label for="cpf" class="mt-3 label_cpf">CPF</label><br />
           <input
             [ngClass]="errorCpfObrigatorio || errorCpfInvalido ? 'errorCpf' : ''"
             placeholder="000.000.000-0"
-            class="input_cpf"
+            class="input_cpf col-sm-8 col-md-4"
             type="string"
             name="cpf"
             formControlName="cpf"
-            (ngModelChange)="onChange()"
-            pattern="(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)"
-            maxlength="11"
+            (ngModelChange)="onChange($event)"
+            maxlength="14"
           />
-          <button class="btn_consultar" type="submit">Consultar por CPF</button><br>
-          <span style="color: red" *ngIf="errorCpfObrigatorio">Cpf é obrigatório.</span>
-          <span style="color: red" *ngIf="errorCpfInvalido">Cpf inválido.</span>
-      </form>
-    </div>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup"> </mat-step>
-  <mat-step> </mat-step>
-  <mat-step> </mat-step>
-</mat-stepper>
+          <button class="btn_consultar col-sm-8 col-md-3" type="submit">
+            Consultar por CPF</button
+          ><br />
+          <span class="span_error" *ngIf="errorCpfObrigatorio"
+            >Cpf é obrigatório.</span
+          >
+          <span class="span_error" *ngIf="errorCpfInvalido">Cpf inválido.</span>
+        </form>
+      </div>
+    </mat-step>
+    <mat-step> </mat-step>
+    <mat-step> </mat-step>
+    <mat-step> </mat-step>
+  </mat-stepper>
+</section>
 
-<h1>card aqui</h1>
+<app-informacoes
+  *ngIf="submeterCpf"
+  [nome]="'Mariane de Souza Oliveia'"
+  [situacao]="'Regular'"
+></app-informacoes>

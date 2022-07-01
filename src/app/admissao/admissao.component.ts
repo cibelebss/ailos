@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { validaCpfService } from '../utils/validaCpf.service';
+
+import { mascaraCpf } from '../utils/masks/mascaraCpf.service';
+import { validaCpfService } from '../utils/validators/validaCpf.service';
 
 @Component({
   selector: 'app-admissao',
@@ -8,49 +10,47 @@ import { validaCpfService } from '../utils/validaCpf.service';
   styleUrls: ['./admissao.component.scss'],
 })
 export class AdmissaoComponent implements OnInit {
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-
-  cpfFormGroup = this._formBuilder.group({
-    cpf: [
-      '',
-      Validators.required,
-      Validators.pattern('(^d{3}\x2Ed{3}\x2Ed{3}\x2Dd{2}$)'),
-    ],
-  });
-
   protected cpf: string = '';
+  protected errorCpfObrigatorio: boolean = false;
+  protected errorCpfInvalido: boolean = false;
+  protected submeterCpf: boolean = false;
 
-  errorCpfObrigatorio: boolean = false;
-  errorCpfInvalido: boolean = false;
+  protected cpfFormGroup = this._formBuilder.group({
+    cpf: ['', Validators.required],
+  });
 
   constructor(
     private _formBuilder: FormBuilder,
-    private validaCpfSevice: validaCpfService
+    private validaCpfSevice: validaCpfService,
+    private mascaraCpfService: mascaraCpf
   ) {}
 
   ngOnInit(): void {}
 
-  onSubmit() {
+  validaForm(){
+    this.submeterCpf = false;
     let cpf = this.cpfFormGroup.get('cpf')?.value;
-    console.log(cpf?.length);
-
+    cpf = cpf?.replace(/\D/g, '');
     if (!cpf || cpf?.length == 0) {
       return (this.errorCpfObrigatorio = true);
     }
-    if ((cpf && cpf.length !== 11) || !this.validaCpfSevice.TestaCPF(cpf!)) {
+    if ((cpf && cpf.length !== 11) || cpf && !this.validaCpfSevice.validaCpf(cpf)) {
       return (this.errorCpfInvalido = true);
     } else {
+      this.onSubmit();
+      this.errorCpfObrigatorio = false;
+      this.errorCpfInvalido = false;
       return;
     }
   }
 
-  onChange() {
+  onSubmit() {
+    this.submeterCpf = true;
+  }
+
+  onChange(event: any) {
     this.errorCpfObrigatorio = false;
     this.errorCpfInvalido = false;
+    this.mascaraCpfService.adicionaMascara(event, this.cpfFormGroup);
   }
 }
