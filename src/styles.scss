@@ -26,6 +26,11 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+    height: 100%;
+}
+
+html{
+  height: -webkit-fill-available;
 }
 ol, ul {
     list-style: none;
@@ -46,7 +51,8 @@ table {
 main {
   margin-left: 85px;
   padding: 20px;
+
+
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
