@@ -1,0 +1,28 @@
+.footer_container {
+  background-color: #f2f2f2;
+  overflow: hidden;
+  height: 85px;
+  display: flex;
+  padding: 20px;
+  position: absolute;
+  bottom: 0vh;
+  left: 85px;
+  width: calc(100vw - 85px);
+  button {
+    border-radius: 3px;
+    padding: 10px 20px 10px 20px;
+    font-size: 12px;
+    font-family: "Open Sans";
+    font-weight: 700;
+    &.botao_dicas {
+      color: #165c7d;
+      border: #165c7d solid 1px;
+    }
+    &.botao_incluir {
+      color: white;
+      background-color: #165c7d;
+      border: #165c7d solid 1px;
+      margin-right: 20px;
+    }
+  }
+}
