@@ -1,0 +1,45 @@
+.titulo_situacao {
+  font-size: 14px;
+  font-family: "Open Sans";
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 5px;
+  line-height: 15px;
+  margin-bottom: 15px !important;
+}
+
+.descricao_situacao {
+  font-size: 12px;
+  font-weight: 200;
+}
+
+p {
+  margin: 0 !important;
+}
+
+.row_container {
+  margin-left: 20px;
+}
+
+.card_dados {
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+  border-radius: 3px;
+  background-color: white;
+  padding: 30px 30px 30px 30px;
+}
+
+.card_row {
+  display: flex;
+  .icon_card_perfil {
+    padding: 5px 10px 5px 0px !important;
+  }
+  .icon_card_check {
+    padding: 5px 10px 5px 0px !important;
+    color: rgb(71, 255, 47);
+  }
+  .title_content_card {
+    font-size: 12px !important;
+    font-family: "Open Sans" !important;
+    font-weight: 100 !important;
+  }
+}
