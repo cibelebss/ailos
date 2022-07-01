@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: 'admissao', component: AdmissaoComponent}
+  {path: '', component: AdmissaoComponent},
+  {path: 'admissao', component: AdmissaoComponent},
+
 ];
 
 @NgModule({
